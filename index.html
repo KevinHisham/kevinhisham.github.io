@@ -1,138 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="shortcut icon" href="image/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kevinhisham | Information System Graduates</title>
+  <link rel="icon" type="image/x-icon" href="image/logo.png">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </head>
 
-<body class="fading-text" style="background-color: rgb(38, 38, 38);">
-    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top navbar bg-dark border-bottom border-body" data-bs-theme="dark" >
-        <div class="container">
-            <img src="image/logo.png" width="40px">
-          <a class="navbar-brand" href="#"><strong>Portfolio</strong></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav; navbar-nav ms-auto">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#Pendidikan">Pendidikan</a>
-              <a class="nav-link" href="#Card">Card</a>
-              <a class="nav-link" href="#Drawing">Works</a>
+<body class="bg-gray-900">
+  <header class="sticky top-0 z-50 w-full bg-gradient-to-b from-[#0b0f17] via-[#0b0f17]/80 to-transparent transition-all">
+    <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img src="image/logo.png" alt="" class="h-8 w-auto" />
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
+          <span class="sr-only">Open main menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="#" class="text-sm/6 font-semibold text-white">Home</a>
+        <a href="#expertise" class="text-sm/6 font-semibold text-white">Expertise</a>
+        <a href="#certification" class="text-sm/6 font-semibold text-white">Certification</a>
+        <a href="#experience" class="text-sm/6 font-semibold text-white">Experience</a>
+        <a href="#projects" class="text-sm/6 font-semibold text-white">Projects</a>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Modal -->
+    <el-dialog>
+      <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+        <div tabindex="0" class="fixed inset-0 focus:outline-none">
+          <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
+            <div class="flex items-center justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+              </a>
+              <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
+                <span class="sr-only">Close menu</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
             </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-white/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Home</a>
+                  <a href="#expertise" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Expertise</a>
+                  <a href="#certification" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Certification</a>
+                  <a href="#experience" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Experience</a>
+                  <a href="#organizations" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Organizations</a>
+              </div>
+            </div>
+          </el-dialog-panel>
+        </div>
+      </dialog>
+    </el-dialog>
+  </header>
+
+  <!-- Content Hero Section -->
+  <div class="relative isolate px-6 pt-14 lg:px-8">
+    <div class="mx-auto max-w-6xl sm:py-24 lg:py-16">     
+      <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+        <!-- Foto & CV Download -->
+        <div class="w-full lg:w-1/3 max-w-sm">
+          <img src="image/foto.jpg" alt="Kevin Hisham Dewanto" class="rounded-xl w-full h-auto object-cover"/>
+          <div class="py-4">
+            <a href="Curriculum Vitae.pdf" download class="block w-full text-center rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 transition">
+              Download CV
+            </a>
           </div>
         </div>
-      </nav>
 
-<div style="height: 90px;"></div>
-
-<header>
-    <h1><strong>Welcome!<span class="badge text-bg-danger">To my Website</span></strong></h1>
-</header>
-
-<div class="container"></div>
-<div style="height: 24px;"></div>
-
-<div class="container">
-    <div class="kiri">
-        <!-- <p>Testing kiri</p> -->
-        <img src="image/foto.gif" width="360px" style="float: right;">
+        <!-- Deskripsi Diri -->
+        <div class="w-full lg:w-2/3 text-center lg:text-left">
+          <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">Kevin Hisham Dewanto</h1>
+          <p class="mt-4 text-base font-medium text-gray-400 sm:text-lg">Information System Graduate</p>
+          <p class="font-bold text-white sm:text-2xl">Cyber Security | Data Analyst Enthusiast</p>
+          <p class="mt-6 text-base font-semibold text-gray-200 sm:text-lg lg:text-xl/8 text-justify">
+            Information Systems graduate specializing in Cybersecurity and Data Analytics.
+            Demonstrated Data Analyst experience at PT Dirgantara Indonesia alongside hands-on expertise in Linux administration, OSINT, and bug bounty hunting.
+            A detail-oriented leader eager to drive secure, data-informed solutions in dynamic IT security teams.
+          </p>
+          
+          <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+            <!-- GitHub -->
+            <a href="https://github.com/kevinhisham" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-gray-800 focus:outline transition">
+              <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/kevinhisham/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-[#0A66C2] focus:outline transition">
+              <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+            <!-- Email -->
+            <a href="mailto:kevinhisham@gmail.com" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-rose-600 focus:outline transition">
+              <svg class="size-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+              </svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6289601979346" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-[#25D366] focus:outline transition">
+              <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="py-12 sm:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <dl class="grid grid-cols-1 gap-6 text-center lg:grid-cols-3">
+        <!-- Kotak 1 -->
+        <div class="justify-center flex flex-col gap-y-3 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
+          <dt class="text-sm font-medium text-slate-400">In Data/Cyber Security Field</dt>
+          <dd class="order-first text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Skilled</dd>
+        </div>
+        <!-- Kotak 2 -->
+        <div class="justify-center flex flex-col gap-y-3 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
+          <dt class="text-sm font-medium text-slate-400">Graduate</dt>
+          <dd class="order-first text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Information Systems</dd>
+        </div>
+        <!-- Kotak 3 -->
+        <div class="justify-center flex flex-col gap-y-3 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
+          <dt class="text-sm font-medium text-slate-400">In PT. Dirgantara Indonesia as Data Analyst</dt>
+          <dd class="order-first text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Experienced</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- Expertise Section -->
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+    <h1 id="expertise" class="p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Expertise and Capabilities</h1>
+
+    <div class="flex flex-col lg:flex-row w-full border border-slate-800 bg-[#0b0f17] text-white font-mono items-stretch rounded-2xl shadow-2xl shadow-indigo-950/40 overflow-hidden">
+      <aside class="w-full lg:w-1/4 border-b lg:border-b-0 lg:border-r border-slate-800 bg-[#0b0f17] flex flex-col">
+        <nav class="flex flex-col w-full">
+
+          <button onclick="openTab(event, 'cybersecurity')" class="tab-btn active flex items-center gap-3 px-6 py-4 text-xs font-bold tracking-wider text-blue-400 bg-slate-800/60 transition border-b border-slate-800/50 text-left">
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            CYBER SECURITY
+          </button>
+          <button onclick="openTab(event, 'dataanalytics')" class="tab-btn flex items-center gap-3 px-6 py-4 text-xs font-bold tracking-wider text-slate-400 hover:bg-slate-800/50 hover:text-white transition border-b border-slate-800/50 text-left">
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            DATA ANALYTICS
+          </button>
+          <button onclick="openTab(event, 'fullstack')" class="tab-btn flex items-center gap-3 px-6 py-4 text-xs font-bold tracking-wider text-slate-400 hover:bg-slate-800/50 hover:text-white transition border-b border-slate-800/50 text-left">
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            FULLSTACK DEV
+          </button>
+        </nav>
+      </aside>
+
+   <!-- Content Panel -->
+<main class="w-full lg:w-3/4 p-4 lg:p-8 bg-[#111827]/80">
+  
+  <!-- Tab Cyber Security -->
+  <div id="cybersecurity" class="tab-content block">
+    <div class="flex items-center gap-3">
+      <span class="p-1.5 bg-blue-600 rounded text-white">
+        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+      </span>
+      <h2 class="text-2xl font-bold tracking-wide">CYBER SECURITY ANALYST</h2>
+    </div>
+    <p class="mt-6 text-slate-300 font-sans text-lg leading-relaxed">
+      Focusing on threat identification, OSINT reconnaissance, bug bounty hunting, and system hardening.
+    </p>
+    <p class="mt-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
+      SKILLS: LINUX ADMIN, OSINT, NETWORK SECURITY, LOG ANALYSIS
+    </p>
+  </div>
+
+  <!-- Tab Data Analytics -->
+  <div id="dataanalytics" class="tab-content hidden">
+    <div class="flex items-center gap-3">
+      <span class="p-1.5 bg-blue-600 rounded text-white">
+        <!-- Ikon Chart Bar -->
+        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+      </span>
+      <h2 class="text-2xl font-bold tracking-wide">DATA ANALYTICS</h2>
+    </div>
+    <p class="mt-6 text-slate-300 font-sans text-lg leading-relaxed">
+      Transforming complex data into actionable operational insights and data pipelines.
+    </p>
+    <p class="mt-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
+      STACK: PYTHON, SQL, PENTAHO ETL, DATA VISUALIZATION (Looker Studio, Tableau, Power BI), AIVEN
+    </p>
+  </div>
+  
+  <!-- Tab Fullstack Development -->
+  <div id="fullstack" class="tab-content hidden">
+    <div class="flex items-center gap-3">
+      <span class="p-1.5 bg-blue-600 rounded text-white">
+        <!-- Ikon Code / Bracket -->
+        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+        </svg>
+      </span>
+      <h2 class="text-2xl font-bold tracking-wide">FULLSTACK DEVELOPMENT</h2>
+    </div>
+    <p class="mt-6 text-slate-300 font-sans text-lg leading-relaxed">
+      Developing responsive web applications with modern frontend and PHP/Laravel backends.
+    </p>
+    <p class="mt-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
+      STACK: HTML, TAILWIND, BOOTSTRAP, LARAVEL, PYTHON, MYSQL
+    </p>
+  </div>
+
+</main>
+    </div>
+  </div>
+
+  <!-- Certification Section -->
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+    <h1 id="certification" class="p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Certification</h1>
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
+      <div class="flex flex-col gap-y-1">
+        <dd class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Cyber Security Analyst</dd>
+        <dt class="text-base font-medium text-gray-400 sm:text-lg">Badan Nasional Sertifikasi Profesional (BNSP)</dt>
+      </div>
+      <a href="image/certification_CSA.jpg" download class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 transition shrink-0 w-full md:w-auto">
+        <svg class="size-10 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+<!-- Projects Section -->
+<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+  <h1 id="experience" class="p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Experience</h1>
+  <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
     
-    <div class="kanan">
-        <h3 class="box">Halo, nama saya </h3> 
-        <h1><strong>Kevin Hisham Dewanto</strong></h1> <span class="badge text-bg-primary">Fresh Graduate</span>
-        <h3>Frontend, Illustrator, Graphic Designer</h3>
-        <h4>Also full time Mahasiswa</h4>
+    <!-- Bagian Teks -->
+    <div class="flex flex-col gap-y-1">
+      <dd class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">PT. Dirgantara Indonesia</dd>
+      <dt class="text-base font-medium text-gray-400 sm:text-lg">Data Analyst</dt>
     </div>
+
+    <!-- Bagian Gambar (Menggantikan Button) -->
+    <img 
+      src="image/PTDI.png" 
+      alt="PT Dirgantara Indonesia" 
+      class="h-16 w-auto object-contain shrink-0 rounded-lg bg-white border-2 border-white p-1"/>
+  </div>
 </div>
 
-<div id="Pendidikan" style="height: 136px"></div>
-
-<header>
-    <h1><strong>Riwayat Pendidikan</strong></h1>
-</header>
-
-<div class="container">
-    <div class="kiri">
-        <h2 class="box"><strong>Sekolah Indonesia Riyadh</strong></h2>
-        <h3>2019-2022 | SMA IPA</h3>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+    <h1 id="projects" class="p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Projects</h1>
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
+      <div class="flex flex-col gap-y-1">
+        <dd class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Work in Progress 🙏</dd>
+        <dt class="text-base font-medium text-gray-400 sm:text-lg">Hang Tight!</dt>
+      </div>
     </div>
-    
-    <div class="kanan">
-        <h2 class="box"><strong>Telkom University</strong></h2>
-        <h3>Sejak 2022 | Jurusan Sistem Informasi</h3>
-    </div>
-</div>
+  </div>
 
-<header>
-    <div class="smallerbox">
-        <h4 style="text-align: center;"><strong>Sedikit tentang saya:</strong></h4>
-        <h3  class="box">Saya orangnya cenderung kalem dan tidak banyak bicara. Namun tergantung situasi, saya juga<br>terkadang banyak bicara. Saya sangat tertarik dengan seni dan desain.</h3>
-    </div>
-</header>
-    
-<div style="height: 96px;"></div>
-<div id="Card" style="height: 28px;"></div>
-<header>
-    <h1><strong>Card(test)</strong></h1>
-</header>
+    <script>
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.add("hidden");
+        tabContents[i].classList.remove("block");
+      }
 
-<div class="container">
-    <div class="card text-bg-dark mb-3" style="width: 18rem;">
-        <img src="image/okcomputer.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">The Virgincore Website</h5>
-        <p class="card-text">Personal project saat libur semester. Website berisi musik yang saya sukai. Dibuat dengan html dan css.</p>
-        <a href="virgincorept2.htm" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-    
-    <div class="card text-bg-dark mb-3" style="width: 18rem;">
-        <img src="image/card_github.png" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">Github Account</h5>
-        <p class="card-text">Akun GitHub <a style="font-weight: bold;">KevinHisham</a>(saya). Masih pemula dan baru belajar. Doakan contributionnya bisa full hijau.</p>
-        <a href="https://github.com/KevinHisham" class="btn btn-primary">Open Github</a>
-        </div>
-    </div>
+      const tabBtns = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("text-blue-400", "bg-slate-800/60", "active");
+        tabBtns[i].classList.add("text-slate-400");
+      }
 
-    <!-- <div class="card text-bg-dark mb-3" style="width: 18rem;">
-        <img src="image/okcomputer.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">Placeholder aja</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div> -->
-</div>
-
-<div id="Drawing" style="height: 36px;"></div>
-
-<header>
-    <h1><strong>Illustration/Graphic Design Portfolio</strong></h1>
-</header>
-
-<container>
-    <img src="image/1.png" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/3.jpg" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/7.jpg" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/8.jpg" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/9.jpg" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/10.png" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/11.jpg" width="360px" style="padding: 0 20px 0 20px;">
-    <img src="image/12.jpg" width="360px" style="padding: 0 20px 0 20px;">
-</container>
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffff" fill-opacity="1" d="M0,192L40,197.3C80,203,160,213,240,192C320,171,400,117,480,128C560,139,640,213,720,229.3C800,245,880,203,960,192C1040,181,1120,203,1200,213.3C1280,224,1360,224,1400,224L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
-<!-- <p style="background-color: white; color: black; text-align: center;">Made with love by Kevin</p> -->
-
+      document.getElementById(tabName).classList.remove("hidden");
+      document.getElementById(tabName).classList.add("block");
+      
+      evt.currentTarget.classList.remove("text-slate-400");
+      evt.currentTarget.classList.add("text-blue-400", "bg-slate-800/60", "active");
+    }
+  </script>
 </body>
+</html>

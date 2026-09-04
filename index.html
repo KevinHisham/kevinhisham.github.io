@@ -1,582 +1,951 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kevinhisham | Information System Graduates</title>
-  <link rel="icon" type="image/x-icon" href="image/logo.png">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kevinhisham | Information System Graduates</title>
+    <link rel="icon" type="image/x-icon" href="image/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
+      type="module"
+    ></script>
+  </head>
 
-<body class="bg-gray-900 bg-[#0b0f17] bg-grid-pattern text-slate-100 min-h-screen">
-  <header class="sticky top-0 z-50 w-full bg-gradient-to-b from-[#0b0f17] via-[#0b0f17]/80 to-transparent transition-all">
-<nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
-      
-      <!-- Container Kiri: Logo + IP Banner -->
-      <div class="flex items-center gap-3 sm:gap-4">
-        <!-- Logo -->
-        <a href="#" class="-m-1.5 p-1.5">
-          <img src="image/logo.png" alt="" class="h-8 w-auto" />
-        </a>
-
-        <!-- IP Banner (Di Sebelah Logo) -->
-        <div class="hidden sm:flex items-center gap-1.5 font-medium text-slate-300 text-xs md:text-sm bg-[#0b0f17]/60 border border-slate-800/80 px-3 py-1.5 rounded-full shadow-inner">
-          <!-- Icon Fingerprint -->
-          <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-          </svg>
-
-          <!-- Text Content -->
-          <span>Your IP</span>
-          <span id="banner-ip" class="bg-[#1e1b2e] text-[#f43f5e] font-mono px-2 py-0.5 rounded text-xs font-semibold">Loading...</span>
-          <span>from</span>
-          <span id="banner-location" class="bg-[#1e1b2e] text-[#f43f5e] px-2 py-0.5 rounded text-xs font-semibold">Loading...</span>
-          <span class="font-bold text-white hidden md:inline">is exposed</span>
-        </div>
-      </div>
-
-      <!-- Hamburger Menu Mobile -->
-      <div class="flex lg:hidden">
-        <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
-          <span class="sr-only">Open main menu</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Menu Navigasi Desktop -->
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm/6 font-semibold text-white">Home</a>
-        <a href="#expertise" class="text-sm/6 font-semibold text-white">Expertise</a>
-        <a href="#certification" class="text-sm/6 font-semibold text-white">Certification</a>
-        <a href="#experience" class="text-sm/6 font-semibold text-white">Experience</a>
-        <a href="#projects" class="text-sm/6 font-semibold text-white">Projects</a>
-        <a href="#visitor-info" class="text-sm/6 font-semibold text-white">Visitor Info</a>
-      </div>
-
-    </nav>
-
-    <!-- Mobile Menu Modal -->
-    <el-dialog>
-      <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-        <div tabindex="0" class="fixed inset-0 focus:outline-none">
-          <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
-            <div class="flex items-center justify-between">
-              <a href="#" class="-m-1.5 p-1.5">
-                <img src="image/logo.png" alt="" class="h-8 w-auto" />
-              </a>
-              <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
-                <span class="sr-only">Close menu</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-            </div>
-            <div class="mt-6 flow-root">
-              <div class="-my-6 divide-y divide-white/10">
-                <div class="space-y-2 py-6">
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Home</a>
-                  <a href="#expertise" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Expertise</a>
-                  <a href="#certification" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Certification</a>
-                  <a href="#experience" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Experience</a>
-                  <a href="#projects" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Projects</a>
-                  <a href="#visitor-info" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Visitor Info</a>
-              </div>
-            </div>
-          </el-dialog-panel>
-        </div>
-      </dialog>
-    </el-dialog>
-  </header>
-
-  <!-- Content Hero Section -->
-  <div class="relative isolate px-6 pt-14 lg:px-8">
-    <div class="mx-auto max-w-6xl sm:py-24 lg:py-16">     
-      <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-        <!-- Foto & CV Download -->
-        <div class="w-full lg:w-1/3 max-w-sm">
-          <img src="image/foto.jpg" alt="Kevin Hisham Dewanto" class="rounded-xl w-full h-auto object-cover"/>
-          <div class="py-4">
-            <a href="Curriculum Vitae.pdf" download class="block w-full text-center rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 transition">
-              Download CV
-            </a>
-          </div>
-        </div>
-
-        <!-- Deskripsi Diri -->
-        <div class="w-full lg:w-2/3 text-center lg:text-left">
-          <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">Kevin Hisham Dewanto</h1>
-          <p class="mt-4 text-base font-medium text-gray-400 sm:text-lg">Information System Graduate</p>
-          <p class="font-bold text-white sm:text-2xl">Cyber Security | Data Analyst Enthusiast</p>
-          <p class="mt-6 text-base font-semibold text-gray-200 sm:text-lg lg:text-xl/8 text-justify">
-            Information Systems graduate specializing in Cybersecurity and Data Analytics.
-            Demonstrated Data Analyst experience at PT Dirgantara Indonesia alongside hands-on expertise in Linux administration, OSINT, and bug bounty hunting.
-            A detail-oriented leader eager to drive secure, data-informed solutions in dynamic IT security teams.
-          </p>
-          
-          <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
-            <!-- GitHub -->
-            <a href="https://github.com/kevinhisham" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-gray-800 focus:outline transition">
-              <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
-            </a>
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/kevinhisham/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-[#0A66C2] focus:outline transition">
-              <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-              </svg>
-            </a>
-            <!-- Email -->
-            <a href="mailto:kevinhisham@gmail.com" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-rose-600 focus:outline transition">
-              <svg class="size-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-              </svg>
-            </a>
-            <!-- WhatsApp -->
-            <a href="https://wa.me/6289601979346" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-indigo-950/20 hover:border-slate-700 hover:bg-[#25D366] focus:outline transition">
-              <svg class="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stats Section -->
-<div class="py-12 sm:py-24">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <dl class="grid grid-cols-1 gap-6 text-center lg:grid-cols-3">
-      
-      <!-- Kotak 1 -->
-      <div class="group relative overflow-hidden justify-center flex flex-col gap-y-3 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-        <!-- Shine Element -->
-        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
-
-        <dt class="text-sm font-medium text-slate-400">In Data/Cyber Security Field</dt>
-        <dd class="order-first text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Skilled</dd>
-      </div>
-
-      <!-- Kotak 2 -->
-      <div class="group relative overflow-hidden justify-center flex flex-col gap-y-3 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-        <!-- Shine Element -->
-        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
-
-        <dt class="text-sm font-medium text-slate-400">Graduate</dt>
-        <dd class="order-first text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Information Systems</dd>
-      </div>
-
-      <!-- Kotak 3 -->
-      <div class="group relative overflow-hidden justify-center flex flex-col gap-y-3 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-        <!-- Shine Element -->
-        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
-
-        <dt class="text-sm font-medium text-slate-400">In PT. Dirgantara Indonesia as Data Analyst</dt>
-        <dd class="order-first text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Experienced</dd>
-      </div>
-
-    </dl>
-  </div>
-</div>
-
-<!-- Expertise Section -->
-<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-  <h1 id="expertise" class="scroll-mt-24 p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Expertise and Capabilities</h1>
-
-  <!-- Outer Card Container -->
-  <div class="group relative overflow-hidden flex flex-col lg:flex-row w-full border border-slate-800 bg-[#0b0f17] text-white font-mono items-stretch rounded-2xl shadow-2xl shadow-indigo-950/40">
-    
-    <!-- 1. Shine Element (z-10) -->
-    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10"></div>
-
-    <!-- 2. Sidebar Tab Navigation (z-20 agar di atas shine) -->
-    <aside class="relative z-20 w-full lg:w-1/4 border-b lg:border-b-0 lg:border-r border-slate-800 bg-[#0b0f17] flex flex-col">
-      <nav class="flex flex-col w-full">
-        <button onclick="openTab(event, 'cybersecurity')" class="tab-btn active flex items-center gap-3 px-6 py-4 text-xs font-bold tracking-wider text-blue-400 bg-slate-800/60 transition border-b border-slate-800/50 text-left cursor-pointer">
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          CYBER SECURITY
-        </button>
-        <button onclick="openTab(event, 'dataanalytics')" class="tab-btn flex items-center gap-3 px-6 py-4 text-xs font-bold tracking-wider text-slate-400 hover:bg-slate-800/50 hover:text-white transition border-b border-slate-800/50 text-left cursor-pointer">
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          DATA ANALYTICS
-        </button>
-        <button onclick="openTab(event, 'fullstack')" class="tab-btn flex items-center gap-3 px-6 py-4 text-xs font-bold tracking-wider text-slate-400 hover:bg-slate-800/50 hover:text-white transition border-b border-slate-800/50 text-left cursor-pointer">
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-          FULLSTACK DEV
-        </button>
-      </nav>
-    </aside>
-
-    <!-- 3. Content Panel (z-20 agar di atas shine) -->
-    <main class="relative z-20 w-full lg:w-3/4 p-6 lg:p-8 bg-[#111827]/80">
-      
-      <!-- Tab Cyber Security -->
-      <div id="cybersecurity" class="tab-content block">
-        <div class="flex items-center gap-3">
-          <span class="p-1.5 bg-blue-600 rounded text-white">
-            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </span>
-          <h2 class="text-2xl font-bold tracking-wide">CYBER SECURITY ANALYST</h2>
-        </div>
-        <p class="mt-6 text-slate-300 font-sans text-lg leading-relaxed">
-          Focusing on threat identification, OSINT reconnaissance, bug bounty hunting, and system hardening.
-        </p>
-        <p class="mt-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
-          SKILLS: LINUX ADMIN, OSINT, NETWORK SECURITY, LOG ANALYSIS
-        </p>
-      </div>
-
-      <!-- Tab Data Analytics -->
-      <div id="dataanalytics" class="tab-content hidden">
-        <div class="flex items-center gap-3">
-          <span class="p-1.5 bg-blue-600 rounded text-white">
-            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-          </span>
-          <h2 class="text-2xl font-bold tracking-wide">DATA ANALYTICS</h2>
-        </div>
-        <p class="mt-6 text-slate-300 font-sans text-lg leading-relaxed">
-          Transforming complex data into actionable operational insights and data pipelines.
-        </p>
-        <p class="mt-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
-          STACK: PYTHON, SQL, PENTAHO ETL, DATA VISUALIZATION (Looker Studio, Tableau, Power BI), AIVEN
-        </p>
-      </div>
-      
-      <!-- Tab Fullstack Development -->
-      <div id="fullstack" class="tab-content hidden">
-        <div class="flex items-center gap-3">
-          <span class="p-1.5 bg-blue-600 rounded text-white">
-            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-          </span>
-          <h2 class="text-2xl font-bold tracking-wide">FULLSTACK DEVELOPMENT</h2>
-        </div>
-        <p class="mt-6 text-slate-300 font-sans text-lg leading-relaxed">
-          Developing responsive web applications with modern frontend and PHP/Laravel backends.
-        </p>
-        <p class="mt-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
-          STACK: HTML, TAILWIND, BOOTSTRAP, LARAVEL, PYTHON, MYSQL
-        </p>
-      </div>
-
-    </main>
-  </div>
-</div>
-
-  <!-- Certification Section -->
-<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-  <h1 id="certification" class="scroll-mt-24 p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Certification</h1>
-  
-  <div class="group relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-    
-    <!-- 1. Elemen Shine / Kilatan -->
-    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10"></div>
-
-    <!-- 2. Konten Teks Certification (z-20 agar di atas kilatan) -->
-    <div class="relative z-20 flex flex-col gap-y-1">
-      <dd class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Cyber Security Analyst</dd>
-      <dt class="text-base font-medium text-gray-400 sm:text-lg">Badan Nasional Sertifikasi Profesional (BNSP)</dt>
-    </div>
-
-    <!-- 3. Tombol Download dengan Teks + Ukuran Ikon Pas (z-20) -->
-    <a href="image/certification_CSA.jpg" download class="relative z-20 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 transition shrink-0 w-full md:w-auto">
-      <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-      </svg>
-      <span>Download Certificate</span>
+  <body class="bg-[#0b1313] bg-grid-pattern text-slate-100 min-h-screen">
+    <!-- ============================== HEADER ============================== -->
+    <header
+      class="sticky top-0 z-50 w-full bg-[#0b1313]/90 backdrop-blur-md border-b border-teal-900/20 transition-all">
+      <nav class="flex items-center justify-between p-5 lg:px-8 max-w-7xl mx-auto bg-gradient-to-b from-[#0b1313] via-[#0b1313]/95 to-transparent">
+  <!-- Logo + IP Banner -->
+  <div class="flex items-center gap-4">
+    <a href="#" class="shrink-0">
+      <img src="image/logo.png" alt="Logo" class="h-9 w-auto" />
     </a>
 
-  </div>
-</div>
+    <!-- IP Banner (desktop) - STYLE LAMA: MERAH #f43f5e -->
+    <div class="hidden md:flex items-center gap-1.5 font-medium text-slate-300 text-xs md:text-sm bg-[#0b0f17]/60 border border-slate-800/80 px-3 py-1.5 rounded-full shadow-inner">
+      <!-- Icon Fingerprint -->
+      <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+      </svg>
 
-<!-- Projects Section -->
-<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-  <h1 id="experience" class="scroll-mt-24 p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Experience</h1>
-  <div class="group relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-    <!-- Bagian Teks -->
-    <div class="flex flex-col gap-y-1">
-      <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"></div>
-      <dd class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">PT. Dirgantara Indonesia</dd>
-      <dt class="text-base font-medium text-gray-400 sm:text-lg">Data Analyst</dt>
-    </div>
-
-    <!-- Bagian Gambar (Menggantikan Button) -->
-    <img 
-      src="image/PTDI.png" 
-      alt="PT Dirgantara Indonesia" 
-      class="h-16 w-auto object-contain shrink-0 rounded-lg bg-white border-2 border-white p-1"/>
-  </div>
-</div>
-
-<!-- Projects Section -->
-<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-  <h1 id="projects" class="scroll-mt-24 p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Projects</h1>
-  
-  <div class="group relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-    <!-- Shine Element -->
-    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10"></div>
-
-    <!-- Content -->
-    <div class="relative z-20 flex flex-col gap-y-1">
-      <dd class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Work in Progress 🙏</dd>
-      <dt class="text-base font-medium text-gray-400 sm:text-lg">Hang Tight!</dt>
+      <!-- Text Content -->
+      <span>Your IP</span>
+      <span id="banner-ip" class="bg-[#1e1b2e] text-[#f43f5e] font-mono px-2 py-0.5 rounded text-xs font-semibold">Loading...</span>
+      <span>from</span>
+      <span id="banner-location" class="bg-[#1e1b2e] text-[#f43f5e] px-2 py-0.5 rounded text-xs font-semibold">Loading...</span>
+      <span class="font-bold text-white hidden md:inline">is exposed</span>
     </div>
   </div>
-</div>
 
-<!-- Visitor Info Section -->
-<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-  <!-- ID diubah ke #visitor-info agar tidak bentrok dengan #projects -->
-  <h1 id="visitor-info" class="scroll-mt-24 p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Visitor Info</h1>
-
-  <div class="group relative overflow-hidden rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-    <!-- Shine Element -->
-    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10"></div>
-
-    <!-- Content Cards Container -->
-    <div class="relative z-20 grid grid-cols-1 sm:grid-cols-3 gap-4 text-base font-medium text-gray-400 sm:text-lg">
-      <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-        <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">IP Address</span>
-        <span id="ip-address" class="text-white font-semibold">Loading...</span>
-      </div>
-      <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-        <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">Location</span>
-        <span id="location" class="text-white font-semibold">Loading...</span>
-      </div>
-      <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-        <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">ISP / Network</span>
-        <span id="isp" class="text-white font-semibold">Loading...</span>
-      </div>
-    </div>
-    <div class="mt-6 pt-6 border-t border-slate-800/80">
-  <h3 class="text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-4">Connection & Security Environment</h3>
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm font-medium">
-    
-    <!-- Protocol & Encryption -->
-    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-      <span class="block text-xs uppercase text-slate-400 mb-1">Protocol / Encryption</span>
-      <span id="sec-protocol" class="text-white font-semibold">Checking...</span>
-    </div>
-
-    <!-- Network RTT / Latency -->
-    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-      <span class="block text-xs uppercase text-slate-400 mb-1">Est. Network RTT</span>
-      <span id="sec-rtt" class="text-white font-semibold">Checking...</span>
-    </div>
-
-    <!-- Do Not Track (DNT) Status -->
-    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-      <span class="block text-xs uppercase text-slate-400 mb-1">Do Not Track (DNT)</span>
-      <span id="sec-dnt" class="text-white font-semibold">Checking...</span>
-    </div>
-
-    <!-- Platform & CPU Cores -->
-    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
-      <span class="block text-xs uppercase text-slate-400 mb-1">OS / CPU Threads</span>
-      <span id="sec-platform" class="text-white font-semibold">Checking...</span>
-    </div>
-
+  <!-- Desktop Nav -->
+  <div class="hidden lg:flex items-center gap-8">
+    <a href="#" class="nav-link text-sm text-slate-200">Home</a>
+    <a href="#expertise" class="nav-link text-sm text-slate-200">Expertise</a>
+    <a href="#certification" class="nav-link text-sm text-slate-200">Certification</a>
+    <a href="#experience" class="nav-link text-sm text-slate-200">Experience</a>
+    <a href="#projects" class="nav-link text-sm text-slate-200">Projects</a>
+    <a href="#visitor-info" class="nav-link text-sm text-slate-200">Visitor Info</a>
   </div>
-</div>
-  </div>
-</div>
 
-<!-- Footer Section -->
-<footer class="mt-20 border-t border-slate-800/80 bg-[#070a0f] text-slate-400 font-sans">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8 py-12">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      
-      <!-- Left side: Brand / Bio & Live Status -->
-      <div class="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
-        <div class="flex items-center gap-2 text-white font-bold tracking-wider font-mono text-lg">
-          <span class="text-indigo-500">&gt;_</span> KEVIN HISHAM DEWANTO
+  <!-- Hamburger (mobile) -->
+  <div class="flex lg:hidden">
+    <button type="button" command="show-modal" commandfor="mobile-menu" class="p-2 text-slate-300 hover:text-teal-300 transition">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+      <!-- Mobile Menu -->
+      <el-dialog>
+        <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+          <div tabindex="0" class="fixed inset-0 focus:outline-none">
+            <el-dialog-panel
+              class="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-[#0b1313] p-6 border-l border-teal-900/30 shadow-2xl"
+            >
+              <div class="flex items-center justify-between">
+                <img src="image/logo.png" alt="Logo" class="h-8 w-auto" />
+                <button
+                  type="button"
+                  command="close"
+                  commandfor="mobile-menu"
+                  class="p-2 text-slate-400 hover:text-teal-300 transition"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="size-6"
+                  >
+                    <path
+                      d="M6 18 18 6M6 6l12 12"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-8 space-y-1">
+                <a
+                  href="#"
+                  class="mobile-nav-item block rounded-lg px-4 py-2.5 text-base font-semibold text-white"
+                  >Home</a
+                >
+                <a
+                  href="#expertise"
+                  class="mobile-nav-item block rounded-lg px-4 py-2.5 text-base font-semibold text-white"
+                  >Expertise</a
+                >
+                <a
+                  href="#certification"
+                  class="mobile-nav-item block rounded-lg px-4 py-2.5 text-base font-semibold text-white"
+                  >Certification</a
+                >
+                <a
+                  href="#experience"
+                  class="mobile-nav-item block rounded-lg px-4 py-2.5 text-base font-semibold text-white"
+                  >Experience</a
+                >
+                <a
+                  href="#projects"
+                  class="mobile-nav-item block rounded-lg px-4 py-2.5 text-base font-semibold text-white"
+                  >Projects</a
+                >
+                <a
+                  href="#visitor-info"
+                  class="mobile-nav-item block rounded-lg px-4 py-2.5 text-base font-semibold text-white"
+                  >Visitor Info</a
+                >
+              </div>
+              <div
+                class="mt-8 pt-6 border-t border-teal-900/20 text-xs text-slate-500"
+              >
+                <span class="text-teal-400/70">◆</span> Operational
+              </div>
+            </el-dialog-panel>
+          </div>
+        </dialog>
+      </el-dialog>
+    </header>
+
+    <!-- ============================== HERO ============================== -->
+    <section class="relative isolate px-6 lg:px-8 pt-8 pb-4">
+      <div class="mx-auto max-w-5xl">
+        <div
+          class="flex flex-col lg:flex-row items-center lg:items-start gap-10"
+        >
+          <!-- Photo + CV -->
+          <div class="w-full lg:w-1/3 max-w-xs shrink-0">
+            <div
+              class="relative rounded-xl overflow-hidden border border-teal-900/40 shadow-2xl shadow-teal-950/50"
+            >
+              <img
+                src="image/foto.jpg"
+                alt="Kevin Hisham Dewanto"
+                class="w-full h-auto object-cover"
+              />
+              <div class="absolute inset-0 shine"></div>
+            </div>
+            <div class="mt-5">
+              <a
+                href="Curriculum Vitae.pdf"
+                download
+                class="block w-full text-center rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:shadow-teal-600/30 hover:scale-[1.02] transition-all duration-200"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div class="w-full lg:w-2/3 text-center lg:text-left">
+            <div
+              class="inline-block px-4 py-1.5 mb-3 rounded-full bg-teal-950/40 border border-teal-900/30 text-[10px] font-mono tracking-widest text-teal-300 uppercase"
+            >
+              ◆ security · data
+            </div>
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]"
+            >
+              Kevin Hisham <br>Dewanto
+            </h1>
+            <p class="mt-3 text-base font-medium text-teal-300/90 sm:text-lg">
+              Information System Graduate
+            </p>
+            <p class="mt-1 text-lg font-semibold text-white/80 sm:text-2xl">
+              Cyber Security · Data Analyst
+            </p>
+
+            <p
+              class="mt-5 text-base text-slate-300 sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0"
+            >
+              Information Systems graduate specializing in
+              <strong class="text-teal-300">Cyber Security</strong> and
+              <strong class="text-teal-300">Data Analytics</strong>. Data
+              Analyst experience at
+              <strong class="text-white">PT Dirgantara Indonesia</strong> with
+              hands-on expertise in
+              <strong class="text-teal-200/90"
+                >Linux administration, OSINT, and Bug Bounty Hunting</strong
+              >. Detail-oriented leader driving secure, data-informed solutions.
+            </p>
+
+            <!-- Social Icons -->
+            <div
+              class="mt-6 flex flex-wrap justify-center lg:justify-start gap-3"
+            >
+              <a
+                href="https://github.com/kevinhisham"
+                target="_blank"
+                rel="noopener"
+                class="group flex items-center gap-2 rounded-xl border border-teal-900/40 px-4 py-2.5 text-sm font-medium text-white bg-[#0f1a1a] hover:bg-white/5 hover:border-teal-500/60 transition-all duration-200"
+              >
+                <svg class="size-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  />
+                </svg>
+                <span class="hidden sm:inline">GitHub</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/kevinhisham/"
+                target="_blank"
+                rel="noopener"
+                class="group flex items-center gap-2 rounded-xl border border-teal-900/40 px-4 py-2.5 text-sm font-medium text-white bg-[#0f1a1a] hover:bg-[#0a66c2]/20 hover:border-[#0a66c2]/60 transition-all duration-200"
+              >
+                <svg class="size-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                  />
+                </svg>
+                <span class="hidden sm:inline">LinkedIn</span>
+              </a>
+
+              <a
+                href="mailto:kevinhisham@gmail.com"
+                class="group flex items-center gap-2 rounded-xl border border-teal-900/40 px-4 py-2.5 text-sm font-medium text-white bg-[#0f1a1a] hover:bg-rose-600/20 hover:border-rose-500/60 transition-all duration-200"
+              >
+                <svg
+                  class="size-5 stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                  />
+                </svg>
+                <span class="hidden sm:inline">Email</span>
+              </a>
+
+              <a
+                href="https://wa.me/6289601979346"
+                target="_blank"
+                rel="noopener"
+                class="group flex items-center gap-2 rounded-xl border border-teal-900/40 px-4 py-2.5 text-sm font-medium text-white bg-[#0f1a1a] hover:bg-emerald-600/20 hover:border-emerald-500/60 transition-all duration-200"
+              >
+                <svg class="size-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                  />
+                </svg>
+                <span class="hidden sm:inline">WhatsApp</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <p class="text-xs text-slate-400 max-w-sm">
-          Information Systems Graduate specializing in Cybersecurity, OSINT, and Data Analytics.
-        </p>
-        
-        <!-- Live Status Indicator -->
-        <div class="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span class="text-slate-300">System Status: <span class="text-emerald-400 font-semibold">Operational</span></span>
+      </div>
+    </section>
+
+    <!-- ============================== STATS ============================== -->
+    <section class="py-12 sm:py-16">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <dl class="grid grid-cols-1 gap-5 text-center sm:grid-cols-3">
+          <div
+            class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7"
+          >
+            <div class="shine"></div>
+            <dt class="text-sm font-medium text-teal-300/80">
+              In Cyber Security Field
+            </dt>
+            <dd
+              class="order-first text-3xl font-extrabold text-white sm:text-4xl"
+            >
+              Skilled
+            </dd>
+          </div>
+          <div
+            class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7"
+          >
+            <div class="shine"></div>
+            <dt class="text-sm font-medium text-teal-300/80">Graduate</dt>
+            <dd
+              class="order-first text-3xl font-extrabold text-white sm:text-4xl"
+            >
+              Information Systems
+            </dd>
+          </div>
+          <div
+            class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7"
+          >
+            <div class="shine"></div>
+            <dt class="text-sm font-medium text-teal-300/80">
+              PT Dirgantara Indonesia
+            </dt>
+            <dd
+              class="order-first text-3xl font-extrabold text-white sm:text-4xl"
+            >
+              Experienced
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================== EXPERTISE ============================== -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+      <h2
+        id="expertise"
+        class="scroll-mt-24 pt-6 pb-8 text-4xl font-bold tracking-tight text-white text-center sm:text-5xl"
+      >
+        Expertise &amp; Capabilities
+      </h2>
+
+      <div
+        class="group relative overflow-hidden flex flex-col lg:flex-row w-full border border-teal-900/30 bg-[#0f1a1a] rounded-2xl shadow-2xl shadow-teal-950/20"
+      >
+        <!-- Shine -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"
+        ></div>
+
+        <!-- Tabs -->
+        <aside
+          class="relative z-10 w-full lg:w-1/4 border-b lg:border-b-0 lg:border-r border-teal-900/30 bg-[#0b1313] rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none overflow-hidden"
+        >
+          <nav class="flex flex-col">
+            <button
+              onclick="openTab(event, 'cybersecurity')"
+              class="tab-btn active flex items-center gap-3 px-5 py-4 text-xs font-bold tracking-wider text-teal-400 bg-teal-950/30 border-b border-teal-900/20 text-left transition-all"
+            >
+              <svg
+                class="size-5 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+              CYBER SECURITY
+            </button>
+            <button
+              onclick="openTab(event, 'dataanalytics')"
+              class="tab-btn flex items-center gap-3 px-5 py-4 text-xs font-bold tracking-wider text-slate-400 hover:text-teal-300 hover:bg-teal-950/20 border-b border-teal-900/20 text-left transition-all"
+            >
+              <svg
+                class="size-5 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+              DATA ANALYTICS
+            </button>
+            <button
+              onclick="openTab(event, 'fullstack')"
+              class="tab-btn flex items-center gap-3 px-5 py-4 text-xs font-bold tracking-wider text-slate-400 hover:text-teal-300 hover:bg-teal-950/20 border-b border-teal-900/20 text-left transition-all"
+            >
+              <svg
+                class="size-5 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+              FULLSTACK DEV
+            </button>
+          </nav>
+        </aside>
+
+        <!-- Content -->
+        <main
+          class="relative z-10 w-full lg:w-3/4 p-7 lg:p-9 bg-[#0b1313]/60 rounded-b-2xl lg:rounded-r-2xl lg:rounded-bl-none"
+        >
+          <div id="cybersecurity" class="tab-content block">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="p-2 bg-teal-600/20 rounded-lg text-teal-300"
+                ><svg
+                  class="size-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  /></svg
+              ></span>
+              <h3 class="text-xl font-bold text-white">
+                Cyber Security Analyst
+              </h3>
+            </div>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Focusing on threat identification, OSINT reconnaissance, bug
+              bounty hunting, and system hardening.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Linux Admin</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >OSINT</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Network Security</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Log Analysis</span
+              >
+            </div>
+          </div>
+
+          <div id="dataanalytics" class="tab-content hidden">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="p-2 bg-teal-600/20 rounded-lg text-teal-300"
+                ><svg
+                  class="size-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  /></svg
+              ></span>
+              <h3 class="text-xl font-bold text-white">Data Analytics</h3>
+            </div>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Transforming complex data into actionable operational insights and
+              data pipelines.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Python</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >SQL</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Pentaho ETL</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Tableau</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Looker Studio</span
+              >
+            </div>
+          </div>
+
+          <div id="fullstack" class="tab-content hidden">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="p-2 bg-teal-600/20 rounded-lg text-teal-300"
+                ><svg
+                  class="size-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  /></svg
+              ></span>
+              <h3 class="text-xl font-bold text-white">
+                Fullstack Development
+              </h3>
+            </div>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Developing responsive web applications with modern frontend and
+              PHP/Laravel backends.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >HTML</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Tailwind</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >Laravel</span
+              >
+              <span
+                class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider rounded-full bg-teal-950/40 border border-teal-900/30 text-teal-300"
+                >MySQL</span
+              >
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- ============================== CERTIFICATIONS ============================== -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+      <h2
+        id="certification"
+        class="scroll-mt-24 pt-6 pb-8 text-4xl font-bold tracking-tight text-white text-center sm:text-5xl"
+      >
+        Certifications
+      </h2>
+
+      <div
+        class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7 md:p-9"
+      >
+        <div class="shine"></div>
+        <div class="relative z-10 flex flex-col gap-7">
+          <!-- Cert 1 -->
+          <div
+            class="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 pb-6 border-b border-teal-900/20"
+          >
+            <div>
+              <h3 class="text-xl font-extrabold text-white sm:text-2xl">
+                Cyber Security Analyst
+              </h3>
+              <p class="text-sm text-slate-400 mt-0.5">
+                Badan Nasional Sertifikasi Profesi (BNSP) · Valid Nov 2025 –
+                2028
+              </p>
+            </div>
+            <a
+              href="image/certification_CSA.jpg"
+              download
+              class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:shadow-teal-600/30 hover:scale-[1.02] transition-all duration-200 shrink-0 w-full md:w-auto justify-center"
+            >
+              <svg
+                class="w-5 h-5 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                />
+              </svg>
+              Download
+            </a>
+          </div>
+
+          <!-- Cert 2 -->
+          <div
+            class="flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
+          >
+            <div>
+              <h3 class="text-xl font-extrabold text-white sm:text-2xl">
+                English Proficiency Test
+              </h3>
+              <p class="text-sm text-slate-400 mt-0.5">
+                Telkom University ·
+                <strong class="text-teal-300">550 / 677</strong> ·
+                Upper-Intermediate (CEFR B2)
+              </p>
+            </div>
+            <a
+              href="image/EPRT.pdf"
+              download
+              class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-700/20 hover:shadow-teal-600/30 hover:scale-[1.02] transition-all duration-200 shrink-0 w-full md:w-auto justify-center"
+            >
+              <svg
+                class="w-5 h-5 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                />
+              </svg>
+              Download
+            </a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Center / Right side: Social & Professional Links -->
-      <div class="flex flex-col items-center md:items-end gap-4">
-        <div class="flex items-center gap-5 text-sm font-medium">
-          <a href="https://github.com/kevinhisham" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition flex items-center gap-1.5">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/kevinhisham/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition flex items-center gap-1.5">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            LinkedIn
-          </a>
-          <a href="mailto:kevinhisham@gmail.com" class="hover:text-indigo-400 transition flex items-center gap-1.5">
-            <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
-            Email
-          </a>
+    <!-- ============================== EXPERIENCE ============================== -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+      <h2
+        id="experience"
+        class="scroll-mt-24 pt-6 pb-8 text-4xl font-bold tracking-tight text-white text-center sm:text-5xl"
+      >
+        Experience
+      </h2>
+
+      <div
+        class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7 md:p-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
+      >
+        <div class="shine"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl font-extrabold text-white sm:text-3xl">
+            PT. Dirgantara Indonesia
+          </h3>
+          <p class="text-base text-slate-400">
+            Data Analyst · June – August 2025
+          </p>
         </div>
-        
-        <p class="text-xs text-slate-400">
-          © 2026 Kevin Hisham Dewanto.
-        </p>
+        <img
+          src="image/PTDI.png"
+          alt="PT Dirgantara Indonesia"
+          class="relative z-10 h-14 w-auto object-contain rounded-lg bg-white/5 border border-white/10 p-1.5"
+        />
       </div>
+    </section>
 
-    </div>
-  </div>
-</footer>
+    <!-- ============================== PROJECTS ============================== -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+      <h2
+        id="projects"
+        class="scroll-mt-24 pt-6 pb-8 text-4xl font-bold tracking-tight text-white text-center sm:text-5xl"
+      >
+        Projects
+      </h2>
 
+      <div
+        class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7 md:p-9 text-center"
+      >
+        <div class="shine"></div>
+        <div class="relative z-10">
+          <div class="text-4xl mb-2">🚀</div>
+          <h3 class="text-2xl font-extrabold text-white">Work in Progress</h3>
+          <p class="text-slate-400 mt-1">
+            Hang tight — something exciting is coming!
+          </p>
+        </div>
+      </div>
+    </section>
 
-<script>
+    <!-- ============================== VISITOR INFO ============================== -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+      <h2
+        id="visitor-info"
+        class="scroll-mt-24 pt-6 pb-8 text-4xl font-bold tracking-tight text-white text-center sm:text-5xl"
+      >
+        Visitor Info
+      </h2>
 
-  fetch('https://ipapi.co/json/')
-    .then(response => {
-      if (!response.ok) throw new Error('Network error');
-      return response.json();
-    })
-    .then(data => {
-      const ip = data.ip || 'Terdeteksi';
-      const location = `${data.city || '-'}, ${data.region || '-'}, ${data.country_name || '-'}`;
-      const cityOnly = data.city || data.country_name || 'Unknown';
-      const isp = data.org || data.asn || 'N/A';
+      <div
+        class="glow-card group relative overflow-hidden rounded-2xl bg-[#0f1a1a] p-7 md:p-9"
+      >
+        <div class="shine"></div>
 
-      // 1. Update Banner Atas
-      const bannerIp = document.getElementById('banner-ip');
-      const bannerLoc = document.getElementById('banner-location');
-      if (bannerIp) bannerIp.innerText = ip;
-      if (bannerLoc) bannerLoc.innerText = cityOnly;
+        <div
+          class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm"
+        >
+          <div class="info-chip">
+            <span
+              class="block text-[10px] uppercase tracking-wider text-teal-400 font-semibold"
+              >IP Address</span
+            >
+            <span id="ip-address" class="text-white font-mono font-semibold"
+              >Loading…</span
+            >
+          </div>
+          <div class="info-chip">
+            <span
+              class="block text-[10px] uppercase tracking-wider text-teal-400 font-semibold"
+              >Location</span
+            >
+            <span id="location" class="text-white font-medium">Loading…</span>
+          </div>
+          <div class="info-chip">
+            <span
+              class="block text-[10px] uppercase tracking-wider text-teal-400 font-semibold"
+              >ISP / Network</span
+            >
+            <span id="isp" class="text-white font-medium">Loading…</span>
+          </div>
+        </div>
 
-      // 2. Update Card Visitor Info Bawah (jika elemennya ada)
-      const cardIp = document.getElementById('ip-address');
-      const cardLoc = document.getElementById('location');
-      const cardIsp = document.getElementById('isp');
-      if (cardIp) cardIp.innerText = ip;
-      if (cardLoc) cardLoc.innerText = location;
-      if (cardIsp) cardIsp.innerText = isp;
-    })
-    .catch(error => {
-      console.error('Error fetching IP info:', error);
-      // Fallback jika error/terblokir
-      ['banner-ip', 'ip-address'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerText = 'Blocked';
-      });
-      ['banner-location', 'location'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerText = 'N/A';
-      });
-    });
-  // Menggunakan API ipapi.co yang lebih stabil dan mendukung HTTPS
-  fetch('https://ipapi.co/json/')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Response network tidak OK');
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Mengisi data jika berhasil
-      document.getElementById('ip-address').innerText = data.ip || 'Terdeteksi';
-      document.getElementById('location').innerText = `${data.city || '-'}, ${data.region || '-'}, ${data.country_name || '-'}`;
-      document.getElementById('isp').innerText = data.org || data.asn || 'N/A';
-    })
-    .catch(error => {
-      console.error('Gagal mengambil data IP:', error);
-      // Notifikasi jika terblokir oleh AdBlock / koneksi
-      document.getElementById('ip-address').innerText = 'Terblokir AdBlocker';
-      document.getElementById('location').innerText = 'Matikan AdBlocker';
-      document.getElementById('isp').innerText = 'N/A';
-    });
+        <div class="relative z-10 mt-6 pt-6 border-t border-teal-900/20">
+          <h4
+            class="text-[10px] uppercase tracking-wider text-teal-400 font-semibold mb-4"
+          >
+            Connection &amp; Security Environment
+          </h4>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm"
+          >
+            <div class="info-chip">
+              <span class="block text-[10px] uppercase text-slate-400"
+                >Protocol</span
+              >
+              <span id="sec-protocol" class="text-white font-medium"
+                >Checking…</span
+              >
+            </div>
+            <div class="info-chip">
+              <span class="block text-[10px] uppercase text-slate-400"
+                >Network RTT</span
+              >
+              <span id="sec-rtt" class="text-white font-medium">—</span>
+            </div>
+            <div class="info-chip">
+              <span class="block text-[10px] uppercase text-slate-400"
+                >Do Not Track</span
+              >
+              <span id="sec-dnt" class="text-white font-medium">—</span>
+            </div>
+            <div class="info-chip">
+              <span class="block text-[10px] uppercase text-slate-400"
+                >OS / CPU</span
+              >
+              <span id="sec-platform" class="text-white font-medium">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Check Protocol & TLS Status
-  const isSecure = window.location.protocol === 'https:';
-  const protocolEl = document.getElementById('sec-protocol');
-  if (protocolEl) {
-    protocolEl.innerHTML = isSecure 
-      ? `<span class="text-emerald-400 flex items-center gap-1.5"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg> HTTPS (TLS Enforced)</span>`
-      : `<span class="text-rose-400">HTTP (Unencrypted)</span>`;
-  }
+    <!-- ============================== FOOTER ============================== -->
+    <footer class="mt-12 border-t border-teal-900/20 bg-[#060b0b]">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 py-10">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-5"
+        >
+          <div
+            class="flex flex-col items-center md:items-start gap-1.5 text-center md:text-left"
+          >
+            <div
+              class="flex items-center gap-2 text-white font-bold font-mono text-base"
+            >
+              <span class="text-teal-400">&gt;_</span> KEVIN HISHAM DEWANTO
+            </div>
+            <p class="text-xs text-slate-500 max-w-sm">
+              Information Systems Graduate · Cybersecurity &amp; Data Analytics
+            </p>
+            <div
+              class="inline-flex items-center gap-2 mt-1.5 px-3 py-1 rounded-full bg-teal-950/30 border border-teal-900/20 text-[10px] font-mono"
+            >
+              <span class="relative flex h-2 w-2"
+                ><span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400/70"
+                ></span
+                ><span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-teal-400"
+                ></span
+              ></span>
+              <span class="text-slate-400"
+                >System
+                <span class="text-teal-300 font-semibold"
+                  >Operational</span
+                ></span
+              >
+            </div>
+          </div>
 
-  // 2. Check Network Connection & RTT (Round Trip Time)
-  const rttEl = document.getElementById('sec-rtt');
-  if (rttEl) {
-    if ('connection' in navigator && navigator.connection.rtt) {
-      const rtt = navigator.connection.rtt;
-      const effectiveType = navigator.connection.effectiveType || '4g';
-      rttEl.innerText = `~${rtt} ms (${effectiveType.toUpperCase()})`;
-    } else {
-      // Fallback jika Network Information API tidak didukung browser
-      rttEl.innerText = 'N/A (Browser Restricted)';
-    }
-  }
+          <div class="flex flex-col items-center md:items-end gap-3">
+            <div class="flex items-center gap-5 text-sm">
+              <a
+                href="https://github.com/kevinhisham"
+                target="_blank"
+                rel="noopener"
+                class="footer-link flex items-center gap-1.5 text-slate-400"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/kevinhisham/"
+                target="_blank"
+                rel="noopener"
+                class="footer-link flex items-center gap-1.5 text-slate-400"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+              <a
+                href="mailto:kevinhisham@gmail.com"
+                class="footer-link flex items-center gap-1.5 text-slate-400"
+              >
+                <svg
+                  class="w-4 h-4 stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                  />
+                </svg>
+                Email
+              </a>
+            </div>
+            <p class="text-[10px] text-slate-500">
+              © 2026 Kevin Hisham Dewanto
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-  // 3. Check Privacy / Do Not Track (DNT) Status
-  const dntEl = document.getElementById('sec-dnt');
-  if (dntEl) {
-    const dntStatus = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-    if (dntStatus === "1" || dntStatus === "yes") {
-      dntEl.innerHTML = `<span class="text-emerald-400">Enabled (Protected)</span>`;
-    } else {
-      dntEl.innerHTML = `<span class="text-amber-400">Disabled / Default</span>`;
-    }
-  }
-
-  // 4. Inspect Platform & Hardware Concurrency (CPU Threads)
-  const platformEl = document.getElementById('sec-platform');
-  if (platformEl) {
-    const cores = navigator.hardwareConcurrency || 'Unknown';
-    // Sederhanakan platform info
-    let userOS = "Unknown OS";
-    if (navigator.userAgent.indexOf("Win") !== -1) userOS = "Windows";
-    if (navigator.userAgent.indexOf("Mac") !== -1) userOS = "macOS";
-    if (navigator.userAgent.indexOf("Linux") !== -1) userOS = "Linux";
-    if (navigator.userAgent.indexOf("Android") !== -1) userOS = "Android";
-    if (navigator.userAgent.indexOf("like Mac") !== -1) userOS = "iOS";
-
-    platformEl.innerText = `${userOS} (${cores} Cores)`;
-  }
-});
-
-</script>
-
-  
+    <!-- ============================== SCRIPTS ============================== -->
     <script>
-    function openTab(evt, tabName) {
-      const tabContents = document.getElementsByClassName("tab-content");
-      for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].classList.add("hidden");
-        tabContents[i].classList.remove("block");
-      }
+      // ─── IP Info ───
+      fetch("https://ipapi.co/json/")
+        .then((r) => {
+          if (!r.ok) throw new Error();
+          return r.json();
+        })
+        .then((d) => {
+          const ip = d.ip || "—";
+          const loc =
+            d.city && d.country_name
+              ? `${d.city}, ${d.country_name}`
+              : d.country_name || "—";
+          const full = `${d.city || "—"}, ${d.region || "—"}, ${d.country_name || "—"}`;
+          const isp = d.org || d.asn || "N/A";
 
-      const tabBtns = document.getElementsByClassName("tab-btn");
-      for (let i = 0; i < tabBtns.length; i++) {
-        tabBtns[i].classList.remove("text-blue-400", "bg-slate-800/60", "active");
-        tabBtns[i].classList.add("text-slate-400");
-      }
+          document.getElementById("banner-ip").textContent = ip;
+          document.getElementById("banner-location").textContent = loc;
+          document.getElementById("ip-address").textContent = ip;
+          document.getElementById("location").textContent = full;
+          document.getElementById("isp").textContent = isp;
+        })
+        .catch(() => {
+          ["banner-ip", "ip-address"].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = "Blocked";
+          });
+          ["banner-location", "location"].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = "N/A";
+          });
+        });
 
-      document.getElementById(tabName).classList.remove("hidden");
-      document.getElementById(tabName).classList.add("block");
-      
-      evt.currentTarget.classList.remove("text-slate-400");
-      evt.currentTarget.classList.add("text-blue-400", "bg-slate-800/60", "active");
-    }
-  </script>
-</body>
+      // ─── Client Info ───
+      document.addEventListener("DOMContentLoaded", () => {
+        // Protocol
+        const p = document.getElementById("sec-protocol");
+        if (p) {
+          const secure = location.protocol === "https:";
+          p.innerHTML = secure
+            ? `<span class="text-teal-300 flex items-center gap-1.5"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg> HTTPS</span>`
+            : `<span class="text-rose-400">HTTP</span>`;
+        }
+
+        // RTT
+        const rtt = document.getElementById("sec-rtt");
+        if (rtt && navigator.connection && navigator.connection.rtt) {
+          const ms = navigator.connection.rtt;
+          const type = navigator.connection.effectiveType || "4g";
+          rtt.textContent = `~${ms} ms (${type.toUpperCase()})`;
+        } else if (rtt) {
+          rtt.textContent = "N/A";
+        }
+
+        // DNT
+        const dnt = document.getElementById("sec-dnt");
+        if (dnt) {
+          const status =
+            navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+          dnt.textContent =
+            status === "1" || status === "yes" ? "✅ Enabled" : "⬜ Disabled";
+          if (status === "1" || status === "yes")
+            dnt.className = "text-teal-300 font-medium";
+          else dnt.className = "text-amber-400 font-medium";
+        }
+
+        // OS / CPU
+        const plat = document.getElementById("sec-platform");
+        if (plat) {
+          const cores = navigator.hardwareConcurrency || "?";
+          let os = "Unknown";
+          const ua = navigator.userAgent;
+          if (ua.includes("Win")) os = "Windows";
+          else if (ua.includes("Mac")) os = "macOS";
+          else if (ua.includes("Linux")) os = "Linux";
+          else if (ua.includes("Android")) os = "Android";
+          else if (ua.includes("like Mac")) os = "iOS";
+          plat.textContent = `${os} (${cores} cores)`;
+        }
+      });
+
+      // ─── Tabs ───
+      function openTab(evt, name) {
+        document.querySelectorAll(".tab-content").forEach((el) => {
+          el.classList.add("hidden");
+          el.classList.remove("block");
+        });
+        document.querySelectorAll(".tab-btn").forEach((el) => {
+          el.classList.remove("active", "text-teal-400", "bg-teal-950/30");
+          el.classList.add("text-slate-400");
+        });
+
+        const target = document.getElementById(name);
+        if (target) {
+          target.classList.remove("hidden");
+          target.classList.add("block");
+        }
+
+        const btn = evt.currentTarget;
+        btn.classList.remove("text-slate-400");
+        btn.classList.add("active", "text-teal-400", "bg-teal-950/30");
+      }
+    </script>
+  </body>
 </html>

@@ -278,6 +278,47 @@
     </div>
   </div>
 
+<!-- Visitor Info Section -->
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
+        <h1 id="projects" class="p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Visitor Info</h1>
+
+    <div class="rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
+      <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl mb-4">If your IP is exposed, beware!</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-base font-medium text-gray-400 sm:text-lg">
+        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
+          <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">IP Address</span>
+          <span id="ip-address" class="text-white font-semibold">Loading...</span>
+        </div>
+        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
+          <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">Location</span>
+          <span id="location" class="text-white font-semibold">Loading...</span>
+        </div>
+        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
+          <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">ISP / Network</span>
+          <span id="isp" class="text-white font-semibold">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple JavaScript Fetch -->
+  <script>
+    fetch('https://freeipapi.com/api/json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ip-address').innerText = data.ipAddress;
+        document.getElementById('location').innerText = `${data.cityName}, ${data.regionName}, ${data.countryName}`;
+        document.getElementById('isp').innerText = data.asnOrganization || 'N/A';
+      })
+      .catch(error => {
+        console.error('Error fetching IP info:', error);
+        document.getElementById('ip-address').innerText = 'Unable to load';
+        document.getElementById('location').innerText = 'N/A';
+        document.getElementById('isp').innerText = 'N/A';
+      });
+  </script>
+
+  
     <script>
     function openTab(evt, tabName) {
       const tabContents = document.getElementsByClassName("tab-content");

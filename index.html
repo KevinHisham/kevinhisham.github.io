@@ -5,20 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>kevinhisham | Information System Graduates</title>
   <link rel="icon" type="image/x-icon" href="image/logo.png">
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </head>
 
 <body class="bg-gray-900">
   <header class="sticky top-0 z-50 w-full bg-gradient-to-b from-[#0b0f17] via-[#0b0f17]/80 to-transparent transition-all">
-    <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
-      <div class="flex lg:flex-1">
+<nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+      
+      <!-- Container Kiri: Logo + IP Banner -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Logo -->
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
           <img src="image/logo.png" alt="" class="h-8 w-auto" />
         </a>
+
+        <!-- IP Banner (Di Sebelah Logo) -->
+        <div class="hidden sm:flex items-center gap-1.5 font-medium text-slate-300 text-xs md:text-sm bg-[#0b0f17]/60 border border-slate-800/80 px-3 py-1.5 rounded-full shadow-inner">
+          <!-- Icon Fingerprint -->
+          <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+          </svg>
+
+          <!-- Text Content -->
+          <span>Your IP</span>
+          <span id="banner-ip" class="bg-[#1e1b2e] text-[#f43f5e] font-mono px-2 py-0.5 rounded text-xs font-semibold">Loading...</span>
+          <span>from</span>
+          <span id="banner-location" class="bg-[#1e1b2e] text-[#f43f5e] px-2 py-0.5 rounded text-xs font-semibold">Loading...</span>
+          <span class="font-bold text-white hidden md:inline">is exposed</span>
+        </div>
       </div>
+
+      <!-- Hamburger Menu Mobile -->
       <div class="flex lg:hidden">
         <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
           <span class="sr-only">Open main menu</span>
@@ -27,6 +46,8 @@
           </svg>
         </button>
       </div>
+
+      <!-- Menu Navigasi Desktop -->
       <div class="hidden lg:flex lg:gap-x-12">
         <a href="#" class="text-sm/6 font-semibold text-white">Home</a>
         <a href="#expertise" class="text-sm/6 font-semibold text-white">Expertise</a>
@@ -34,6 +55,7 @@
         <a href="#experience" class="text-sm/6 font-semibold text-white">Experience</a>
         <a href="#projects" class="text-sm/6 font-semibold text-white">Projects</a>
       </div>
+
     </nav>
 
     <!-- Mobile Menu Modal -->
@@ -283,7 +305,7 @@
         <h1 id="projects" class="p-8 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl text-center">Visitor Info</h1>
 
     <div class="rounded-2xl bg-[#0b0f17] p-8 border border-slate-800 shadow-xl shadow-indigo-950/20 hover:border-slate-700 transition">
-      <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl mb-4">If your IP is exposed, beware!</h2>
+      <!-- <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl mb-4">If your IP is exposed, beware!</h2> -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-base font-medium text-gray-400 sm:text-lg">
         <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800/80">
           <span class="block text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-1">IP Address</span>
@@ -301,22 +323,67 @@
     </div>
   </div>
 
-  <!-- Simple JavaScript Fetch -->
-  <script>
-    fetch('https://freeipapi.com/api/json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('ip-address').innerText = data.ipAddress;
-        document.getElementById('location').innerText = `${data.cityName}, ${data.regionName}, ${data.countryName}`;
-        document.getElementById('isp').innerText = data.asnOrganization || 'N/A';
-      })
-      .catch(error => {
-        console.error('Error fetching IP info:', error);
-        document.getElementById('ip-address').innerText = 'Unable to load';
-        document.getElementById('location').innerText = 'N/A';
-        document.getElementById('isp').innerText = 'N/A';
+<script>
+
+  fetch('https://ipapi.co/json/')
+    .then(response => {
+      if (!response.ok) throw new Error('Network error');
+      return response.json();
+    })
+    .then(data => {
+      const ip = data.ip || 'Terdeteksi';
+      const location = `${data.city || '-'}, ${data.region || '-'}, ${data.country_name || '-'}`;
+      const cityOnly = data.city || data.country_name || 'Unknown';
+      const isp = data.org || data.asn || 'N/A';
+
+      // 1. Update Banner Atas
+      const bannerIp = document.getElementById('banner-ip');
+      const bannerLoc = document.getElementById('banner-location');
+      if (bannerIp) bannerIp.innerText = ip;
+      if (bannerLoc) bannerLoc.innerText = cityOnly;
+
+      // 2. Update Card Visitor Info Bawah (jika elemennya ada)
+      const cardIp = document.getElementById('ip-address');
+      const cardLoc = document.getElementById('location');
+      const cardIsp = document.getElementById('isp');
+      if (cardIp) cardIp.innerText = ip;
+      if (cardLoc) cardLoc.innerText = location;
+      if (cardIsp) cardIsp.innerText = isp;
+    })
+    .catch(error => {
+      console.error('Error fetching IP info:', error);
+      // Fallback jika error/terblokir
+      ['banner-ip', 'ip-address'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = 'Blocked';
       });
-  </script>
+      ['banner-location', 'location'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = 'N/A';
+      });
+    });
+  // Menggunakan API ipapi.co yang lebih stabil dan mendukung HTTPS
+  fetch('https://ipapi.co/json/')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Response network tidak OK');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Mengisi data jika berhasil
+      document.getElementById('ip-address').innerText = data.ip || 'Terdeteksi';
+      document.getElementById('location').innerText = `${data.city || '-'}, ${data.region || '-'}, ${data.country_name || '-'}`;
+      document.getElementById('isp').innerText = data.org || data.asn || 'N/A';
+    })
+    .catch(error => {
+      console.error('Gagal mengambil data IP:', error);
+      // Notifikasi jika terblokir oleh AdBlock / koneksi
+      document.getElementById('ip-address').innerText = 'Terblokir AdBlocker';
+      document.getElementById('location').innerText = 'Matikan AdBlocker';
+      document.getElementById('isp').innerText = 'N/A';
+    });
+</script>
 
   
     <script>
